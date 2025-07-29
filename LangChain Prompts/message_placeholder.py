@@ -13,14 +13,14 @@ chat_history = []
 try:
     with open("chat_history.txt", "r") as file:
         chat_history = file.readlines()
-    print("📝 Loaded chat history:")
+    print("Loaded chat history:")
     for i, msg in enumerate(chat_history):
         print(f"  {i+1}. {msg.strip()}")
 except FileNotFoundError:
-    print("📝 No chat history file found, starting fresh")
+    print("No chat history file found, starting fresh")
 
 # Example usage of the chat template
-print("\n🎯 Chat Template Example:")
+print("\n Chat Template Example:")
 print("=" * 50)
 
 # Sample chat history messages
@@ -39,4 +39,4 @@ print("Formatted messages:")
 for i, msg in enumerate(formatted_messages):
     print(f"  {i+1}. {type(msg).__name__}: {msg.content}")
 
-print("\n✅ Message placeholder example completed successfully!")
+print("\n Message placeholder example completed successfully!")
