@@ -9,14 +9,17 @@ Generative AI using LangChain/
 ├── venv/                           # 🎯 Centralized virtual environment
 ├── activate_venv.sh                # Easy activation script
 ├── VENV_USAGE.md                   # Virtual environment guide
-├── GPU_SETUP.md                    # GPU setup instructions
+├── GPU/                            # 🚀 GPU optimization & setup
+│   ├── README.md                   # GPU documentation
+│   ├── gpu_config.py              # GPU detection & configuration
+│   ├── gpu_optimized_models.py    # GPU-optimized model loading
+│   ├── enable_gpu.sh              # GPU driver setup script
+│   └── GPU_SETUP.md               # Detailed GPU setup guide
 ├── requirements.txt                # All dependencies
 ├── LangChain Models/
 │   ├── 1. LLMs/                   # Language models
 │   ├── 2. ChatModels/             # Chat models
-│   ├── 3. EmbeddedModels/         # Embeddings
-│   ├── gpu_config.py              # GPU utilities
-│   └── gpu_optimized_models.py    # GPU-optimized loading
+│   └── 3. EmbeddedModels/         # Embeddings
 └── LangChain Prompts/
     ├── prompt_ui.py               # Streamlit app
     ├── temperature.py             # Temperature examples
@@ -120,9 +123,13 @@ ANTHROPIC_API_KEY=your_anthropic_api_key_here
 
 ### GPU Setup (Optional)
 ```bash
+# Check GPU availability
+source venv/bin/activate
+python GPU/gpu_config.py
+
 # Run GPU setup script
-chmod +x "LangChain Models/enable_gpu.sh"
-./"LangChain Models/enable_gpu.sh"
+chmod +x GPU/enable_gpu.sh
+./GPU/enable_gpu.sh
 
 # Reboot system
 sudo reboot
@@ -131,7 +138,8 @@ sudo reboot
 ## 📚 Documentation
 
 - **[VENV_USAGE.md](VENV_USAGE.md)** - Virtual environment usage guide
-- **[GPU_SETUP.md](GPU_SETUP.md)** - GPU setup and optimization
+- **[GPU/README.md](GPU/README.md)** - GPU optimization and setup guide
+- **[GPU/GPU_SETUP.md](GPU/GPU_SETUP.md)** - Detailed GPU setup instructions
 - **[LangChain Models/README.md](LangChain%20Models/README.md)** - Models documentation
 
 ## 🎉 Benefits

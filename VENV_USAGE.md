@@ -111,7 +111,7 @@ pip install new-package-name
 ### Run GPU Test
 ```bash
 source venv/bin/activate
-python "LangChain Models/gpu_config.py"
+python GPU/gpu_config.py
 ```
 
 ## Project Structure
@@ -121,12 +121,16 @@ Generative AI using LangChain/
 ├── venv/                           # 🎯 Centralized environment
 ├── activate_venv.sh                # Easy activation
 ├── VENV_USAGE.md                   # This guide
+├── GPU/                            # 🚀 GPU optimization & setup
+│   ├── README.md                   # GPU documentation
+│   ├── gpu_config.py              # GPU detection & configuration
+│   ├── gpu_optimized_models.py    # GPU-optimized model loading
+│   ├── enable_gpu.sh              # GPU driver setup script
+│   └── GPU_SETUP.md               # Detailed GPU setup guide
 ├── LangChain Models/
 │   ├── 1. LLMs/                   # Language models
 │   ├── 2. ChatModels/             # Chat models
-│   ├── 3. EmbeddedModels/         # Embeddings
-│   ├── gpu_config.py              # GPU utilities
-│   └── gpu_optimized_models.py    # GPU-optimized loading
+│   └── 3. EmbeddedModels/         # Embeddings
 └── LangChain Prompts/
     ├── prompt_ui.py               # Streamlit app
     ├── temperature.py             # Temperature examples
