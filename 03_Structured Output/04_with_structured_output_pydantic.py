@@ -1,7 +1,9 @@
+from optparse import Option
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
-from typing import TypedDict, List, Optional
+from typing import TypedDict, List, Optional, Literal
 import os
+from pydantic import BaseModel, Field
 
 load_dotenv()
 
@@ -12,12 +14,14 @@ model = ChatGoogleGenerativeAI(
 )
 
 # Define the structured output schema - fixed for Google's requirements
-class Review(TypedDict):
-    key_themes: List[str]
-    summary: str  # Changed from list to str
-    sentiment: str
-    pros: List[str]
-    cons: List[str]
+class Review(BaseModel):
+    key_themes: List[str] = Field(description = "Write down all the key points discussed in the review in a list")
+    summary: str = Field(description = "A breif summary of the review")
+    sentiment: Literal["positive", "negative", "neutral"] = Field(description = "Return the sentiment of the review either negative, positive or neutral")
+    pros: List[str] = Field(description = "Write down all the pros of the product in a list")
+    cons: List[str] = Field(description = "Write down all the cons of the product in a list")
+    name: Optional[str] = Field(description = "The name of the product")
+
 
 # Create structured model
 structured_model = model.with_structured_output(Review)

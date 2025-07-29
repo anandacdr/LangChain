@@ -1,0 +1,48 @@
+{
+  "title": "ProductReview",
+  "description": "A structured product review with analysis",
+  "type": "object",
+  "properties": {
+    "key_themes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Write down all the key points discussed in the review in a list"
+    },
+    "summary": {
+      "type": "string",
+      "description": "A brief summary of the review"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral"],
+      "description": "Return the sentiment of the review either negative, positive or neutral"
+    },
+    "pros": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Write down all the pros of the product in a list"
+    },
+    "cons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Write down all the cons of the product in a list"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the product"
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Rating from 1 to 10"
+    }
+  },
+  "required": ["key_themes", "summary", "sentiment", "pros", "cons", "name", "rating"]
+}
