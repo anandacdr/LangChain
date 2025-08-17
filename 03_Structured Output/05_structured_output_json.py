@@ -17,12 +17,12 @@ model = ChatGoogleGenerativeAI(
 try:
     with open("05_json_schema.json", "r") as f:
         json_schema = json.load(f)
-    print("✅ JSON schema loaded successfully")
+    print("JSON schema loaded successfully")
 except FileNotFoundError:
-    print("❌ JSON schema file not found")
+    print("JSON schema file not found")
     exit(1)
 except json.JSONDecodeError:
-    print("❌ Invalid JSON schema")
+    print("Invalid JSON schema")
     exit(1)
 
 # Test review text
@@ -44,12 +44,12 @@ Cons:
 
 def test_structured_output():
     """Test the structured output with JSON schema"""
-    print("\n🚀 Testing Structured Output with JSON Schema")
+    print("\n Testing Structured Output with JSON Schema")
     print("=" * 60)
     
     try:
         # Try different approaches for structured output
-        print("🔄 Attempting structured output...")
+        print("Attempting structured output...")
         
         # Method 1: Direct structured output
         try:
@@ -58,8 +58,8 @@ def test_structured_output():
             result = structured_model.invoke(review_text)
             elapsed_time = time.time() - start_time
             
-            print(f"✅ Structured output generated in {elapsed_time:.2f} seconds")
-            print("\n📊 Results:")
+            print(f" Structured output generated in {elapsed_time:.2f} seconds")
+            print("\n Results:")
             print(f"   Name: {result.get('name', 'N/A')}")
             print(f"   Rating: {result.get('rating', 'N/A')}/10")
             print(f"   Sentiment: {result.get('sentiment', 'N/A')}")
@@ -84,7 +84,7 @@ def test_structured_output():
             elapsed_time = time.time() - start_time
             
             print(f"✅ Structured output generated in {elapsed_time:.2f} seconds")
-            print("\n📊 Results:")
+            print("\n Results:")
             print(f"   Name: {result.get('name', 'N/A')}")
             print(f"   Rating: {result.get('rating', 'N/A')}/10")
             print(f"   Sentiment: {result.get('sentiment', 'N/A')}")
@@ -96,14 +96,14 @@ def test_structured_output():
             # Save results to file
             with open("structured_output_result.json", "w") as f:
                 json.dump(result, f, indent=2)
-            print("\n💾 Results saved to 'structured_output_result.json'")
+            print("\n Results saved to 'structured_output_result.json'")
             return
             
         except Exception as e2:
-            print(f"❌ Method 2 failed: {e2}")
+            print(f" Method 2 failed: {e2}")
             
         # If both methods fail, use fallback
-        print("🔄 Both structured methods failed, using fallback...")
+        print(" Both structured methods failed, using fallback...")
         fallback_approach()
         
     except Exception as e:
@@ -179,3 +179,4 @@ if __name__ == "__main__":
     print("- Structured output ensures consistent format")
     print("- Fallback approach for reliability")
     print("- Results are saved to JSON file")
+
